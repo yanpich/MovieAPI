@@ -15,6 +15,5 @@ spring:
       max-file-size: 10MB
       max-request-size: 10MB
 project:
-  poster: /Users/pich/IdeaProjects/Spring boot/MovieAPI/posters
 base:
   url: "http://localhost:8080"
