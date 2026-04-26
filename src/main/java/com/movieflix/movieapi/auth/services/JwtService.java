@@ -47,7 +47,6 @@ public class JwtService {
         byte[] keyBytes = SECRET_KEY.getBytes();
         return Keys.hmacShaKeyFor(keyBytes);
     }
-
     public String generateToken(UserDetails userDetails) {
         return generateToken(new HashMap<>(), userDetails);
     }
@@ -59,7 +58,6 @@ public class JwtService {
     ) {
         Map<String, Object> claims = new HashMap<>(extraClaims);
         claims.put("role", userDetails.getAuthorities());
-
         return Jwts
                 .builder()
                 .setClaims(claims)
@@ -69,7 +67,6 @@ public class JwtService {
                 .signWith(getSignInKey(), SignatureAlgorithm.HS256)
                 .compact();
     }
-
     // if token is valid by checking if token is expired for current user
     public boolean isTokenValid(String token, UserDetails userDetails) {
         try {
